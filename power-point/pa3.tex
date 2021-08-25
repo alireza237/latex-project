@@ -1,0 +1,231 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Warsaw}
+\usecolortheme{beaver}
+%Information to be included in the title page:
+
+
+\title{Linear algebra}
+\author{Alireza Qanbari}
+%\institute{Overleaf}
+\date{\today}
+
+
+
+
+
+
+\begin{document}
+    \frame{\titlepage}
+
+
+
+
+    \begin{frame}
+        \frametitle{Contents}
+        \tableofcontents[pausesections]
+    \end{frame}
+
+
+    \section{Vector spaces}
+
+    \begin{frame}
+        \frametitle{Vector spaces}
+        A vector space over a field F (often the field of the real numbers) is a set $V$ equipped with two binary operations
+        satisfying the following axioms. Elements of $V$ are called vectors, and elements of $F$ are called scalars.\cite{2}
+        \begin{itemize}
+
+
+            \item<1->The first operation, vector addition, takes any two vectors v and w and outputs a third vector v + w.
+            \item <2->The second operation, scalar multiplication, takes any scalar a and any vector v and outputs a new vector av.
+
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Vector spaces}
+        \begin{center}
+
+            \begin{tabular}{||l | l||}
+                \hline
+                Axiom & Signification \\
+                \hline
+                Associativity of addition &  $u+(v+w)=(u+v)+w$  \\
+                \hline
+                Commutativity of addition & $u+v=v+u$ \\
+                \hline
+                Identity element of addition & There exists an element 0 in V,\\
+                &called the zero vector (or simply zero),\\
+                & such that v + 0 = v for all v in V. \\
+                \hline
+
+
+            \end{tabular}
+        \end{center}
+
+
+    \end{frame}
+
+    \subsection{Linear maps}
+
+    \begin{frame}
+        \frametitle{Linear maps}
+
+
+
+        \begin{block}{Linear maps}
+            Linear maps are mappings between vector spaces that preserve the vector-space structure. Given two vector
+            spaces V and W over a field F, a linear map (also called, in some contexts, linear transformation or linear mapping)
+            is a map
+
+        \end{block}
+        \pause
+
+        \begin{alertblock}{}
+            $$T:V\to W$$
+        \end{alertblock}
+        \pause
+
+        that is compatible with addition and scalar multiplication, that is
+        for any vectors u,v in V and scalar a in F.
+        \pause
+
+        \begin{alertblock}{}
+
+
+            $$T(u+v)=T(u)+T(v),\quad T(av)=aT(v)$$
+
+        \end{alertblock}
+
+
+    \end{frame}
+
+
+    \begin{frame}
+        \frametitle{Linear maps}
+        This implies that for any vectors u, v in V and scalars a, b in F, one has
+        When $V = W$ are the same vector space, a linear map $T:V\to V$ is also known as a linear operator on $V$
+        \pause
+
+        \begin{alertblock}{}
+            $$T(au+bv)=T(au)+T(bv)=aT(u)+bT(v)$$
+
+        \end{alertblock}
+
+    \end{frame}
+
+    \subsection{Subspaces, span, and basis}
+
+    \begin{frame}
+        \frametitle{Subspaces, span, and basis}
+        The study of those subsets of vector spaces that are in themselves vector spaces under the induced operations is
+        fundamental, similarly as for many mathematical structures. These subsets are called linear subspaces. More
+        precisely, a linear subspace of a vector space $V$ over a field $F$ is a subset $W$ of $V$ such that $u+v$ and au are
+        in $W$, for every $u, v$ in W, and every $a$ in $F$.
+        \pause
+
+        \begin{examples}
+            given a linear map $T:V\to W$ , the image $T(V)$ of $V$, and the inverse image $ T^{-1}(0)$
+            of 0 (called kernel or null space), are linear subspaces of $W$ and $V$, respectively.
+
+        \end{examples}
+
+
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Subspaces, span, and basis}
+        Another important way of forming a subspace is to consider linear combinations of a set S of vectors: the set of
+        all sums
+        \pause
+        \begin{alertblock}{}
+            $$ a_{1}v_{1}+a_{2}v_{2}+\cdots +a_{k}v_{k}, $$
+
+        \end{alertblock}
+        \pause
+
+        \begin{block}{}
+            where $v_{1}+v_{2}+\cdots +v_{k}$ are in $S$, and $a_{1}+a_{2}+\cdots +a_{k}$, ak are in $F$ form a linear subspace
+            called the span of $S$. The span of S is also the
+            intersection of all linear subspaces containing $S$. In other words, it is the (smallest for the inclusion relation)
+            linear subspace containing $S$.
+
+        \end{block}
+
+
+    \end{frame}
+
+
+    \begin{frame}
+        \frametitle{Subspaces, span, and basis}
+        \begin{block}{spanning set}
+            A set of vectors that spans a vector space is called a spanning set or generating set.\cite{3}
+
+        \end{block}
+        \pause
+
+        \begin{block}{basis of}
+            Such a linearly independent set that spans a vector space $V$ is called a basis of $V$
+
+        \end{block}
+        \pause
+
+        if $S$ is a linearly independent set,
+        and $T$ is a spanning set such that $S\subseteq T,$ then there is a basis B such that
+
+        \pause
+
+        \begin{alertblock}{}
+            $S\subseteq B\subseteq T.$
+
+        \end{alertblock}
+
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Subspaces, span, and basis}
+
+
+
+        \begin{block}{}
+
+            If any basis of $V$ (and therefore every basis) has a finite number of elements, $V$ is a finite-dimensional vector
+            space. If $U$ is a subspace of $V$, then $dim U \leq dim V$. In the case where $V$ is finite-dimensional, the equality of
+            the dimensions implies $U=V$.
+
+        \end{block}
+        \pause
+
+
+        \begin{alertblock}{}
+            If $U_1$ and $U_2$ are subspaces of $V$, then
+
+            $$\dim(U_{1}+U_{2})=\dim U_{1}+\dim U_{2}-\dim(U_{1}\cap U_{2}),$$
+
+            where $U_{1}+U_{2}$ denotes the span of $ U_{1}\cup U_{2}.$\cite{4}
+
+        \end{alertblock}
+
+    \end{frame}
+
+
+    \section{References}
+    \begin{frame}
+        \frametitle{References}
+        \begin{thebibliography}{1}
+
+            \bibitem{1} {
+                Benjamin Peirce (1872) Linear Associative Algebra, lithograph, new edition with corrections, notes,
+                and an added 1875 paper by Peirce, plus notes by his son Charles Sanders Peirce, published in
+                the American Journal of Mathematics v. 4, 1881, Johns Hopkins University, pp. 221 226, Google Eprint}
+            \bibitem{2} {
+                and as an extract, D. Van Nostrand, 1882, Google Eprint.}
+            \bibitem{3} {
+                Roman (2005, ch. 1, p. 27)}
+            \bibitem{4} {
+                Axler (2004, p. 55)}
+        \end{thebibliography}
+
+    \end{frame}
+
+\end{document}
